@@ -1,6 +1,5 @@
 # Python 局域网投票系统 #
 ----------
-[repo path="senzi/python_vote_server"]
 ## 使用方法： ##
 1. 修改list文件，确定可以投票人的名单
 2. 使用vote_server.py搭建投票服务器
