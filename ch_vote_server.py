@@ -25,6 +25,7 @@ __        _______ _     ____ ___  __  __ _____
 通过这个系统，你可以投出你心目中最喜欢的南区点炒
 
 作者：潘健森 欧阳晓辉
+
 ******************************************************
 This work is licensed under the Creative Commons 
 Attribution 4.0 International License. 
@@ -33,6 +34,7 @@ visit http://creativecommons.org/licenses/by/4.0/.
 ******************************************************
 
 键入“quit”离开本系统
+
 请输入你的学号:(eg:201113****)
 ''' 
 logo = '''
@@ -87,6 +89,11 @@ class vote(LineReceiver):
 			self.sendLine("这个学号已经进行过投票了!")
 			return
 		elif len(number) == 10:
+			try:
+				temp = int(number)
+			except ValueError:
+				self.sendLine("请不要输入数字以外的东西。")
+				return
 			self.realname = check_name(number)
 			if self.realname == 'unknow_name':
 				self.sendLine("你好，不过班级列表中并没有你的学号哦.(?)")
