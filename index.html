@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Python vote server : python_vote_system" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Python vote server</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/senzi/python_vote_server">View on GitHub</a>
+
+          <h1 id="project_title">Python vote server</h1>
+          <h2 id="project_tagline">python_vote_system</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/senzi/python_vote_server/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/senzi/python_vote_server/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="python-%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8A%95%E7%A5%A8%E7%B3%BB%E7%BB%9F" class="anchor" href="#python-%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8A%95%E7%A5%A8%E7%B3%BB%E7%BB%9F"><span class="octicon octicon-link"></span></a>Python 局域网投票系统</h1>
+
+<hr><h2>
+<a name="%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>使用方法：</h2>
+
+<ol>
+<li>修改list文件，确定可以投票人的名单</li>
+<li>使用vote_server.py搭建投票服务器</li>
+<li>客户端使用<code>telnet 172.31.200.53 4567</code> 命令连接服务器</li>
+<li>(具体连接哪个ip，服务器会显示出来，端口默认为：4567)</li>
+</ol><h2>
+<a name="%E5%8A%9F%E8%83%BD" class="anchor" href="#%E5%8A%9F%E8%83%BD"><span class="octicon octicon-link"></span></a>功能：</h2>
+
+<ul>
+<li>可以对10个东西进行投票</li>
+<li>投票结果即时显示，回车键可以刷新</li>
+<li>投票结果自动排序，降序显示 </li>
+<li>投票结果显示支持率</li>
+<li>只有<code>list</code>上有学号的人才能投票</li>
+<li>每人只能投票一次</li>
+<li>
+<code>quit</code>命令可以退出</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Python vote server maintained by <a href="https://github.com/senzi">senzi</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
