@@ -12,9 +12,18 @@ def get_ip_address(ifname):
 	pktString = fcntl.ioctl(skt.fileno(), 0x8915, struct.pack('256s', ifname[:15]))
 	ipString  = socket.inet_ntoa(pktString[20:24])
 	return ipString
-
+shark = '''            __                              
+     o                 /' )                             
+                     /'   (                          ,  
+                 __/'     )                        .' `;
+  o      _.-~~~~'          ``---..__             .'   ; 
+    _.--'  b)                       ``--...____.'   .'  
+   (     _.      )).      `-._                     <    
+    `\|\|\|\|)-.....___.-     `-.         __...--'-.'.  
+      `---......____...---`.___.'----... .'         `.; 
+                                       `-`           `  
+'''
 welcome ='''
-
 __        _______ _     ____ ___  __  __ _____ 
 \ \      / / ____| |   / ___/ _ \|  \/  | ____|
  \ \ /\ / /|  _| | |  | |  | | | | |\/| |  _|  
@@ -64,6 +73,7 @@ class vote(LineReceiver):
 		self.users = users
 		self.realname = None
 		self.state = "get_name"
+		self.food = None
 
 	def connectionMade(self):
 		self.sendLine(welcome) 
@@ -93,8 +103,9 @@ class vote(LineReceiver):
 			if self.realname == 'unknow_name':
 				self.sendLine("你好，不过班级列表中并没有你的学号哦.(?)")
 				return
+			self.sendLine(shark)
 			print_food(self)
-			self.sendLine("你好 %s ,请输入1-18的数字进行投票 " % (self.realname))
+			self.sendLine("\n%s你好!!请输入1-18的数字进行投票 " % (self.realname))
 			self.number = number
 			self.users[number] = self
 			self.state = "vote"
@@ -110,12 +121,13 @@ class vote(LineReceiver):
 		except ValueError:
 			self.sendLine("请不要输入数字以外的东西。")
 			return
+		self.food = findfood(`message`)
 		if message<=18 and not message == 0:
 			write = "%s,%s,%s\n" % (self.realname,self.number,message)
 			f.write(write) 
 			f.close()
 			self.vote = message
-			message = "%s<%s>vote:%s" % (self.realname,self.number,self.vote)
+			message = "%s<%s>vote:%s" % (self.realname,self.number,self.food)
 			print message
 			self.state = "voted"
 			self.sendLine("好，你已经投过票了，按回车键来查看结果。")
@@ -178,7 +190,7 @@ def printlist(wcDict,self) :
 	for val,key in valKeyList:
 		food_name = findfood(key)
 		Probability = val*100/float(temp_total)
-		send_temp = '  %-12s|  %-3d|%5.2f%%|' % (food_name,val,Probability)
+		send_temp = '  %-12s|  %-4d|%5.2f%%|' % (food_name,val,Probability)
 		self.sendLine (send_temp)
 
 def print_result(self):
