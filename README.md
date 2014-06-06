@@ -8,7 +8,6 @@
 
 ## 功能： ##
 
-
 - 可以对10个东西进行投票
 - 投票结果即时显示，回车键可以刷新
 - 投票结果自动排序，降序显示 
@@ -17,6 +16,10 @@
 - 每人只能投票一次
 - `quit`命令可以退出
 
+<a href="http://panjiansen.com/wp-content/uploads/2014/06/voteserver.png"><img src="http://panjiansen.com/wp-content/uploads/2014/06/voteserver.png" alt="voteserver" width="553" height="492" class="aligncenter size-full wp-image-183" /></a>
 
+<a href="http://panjiansen.com/wp-content/uploads/2014/06/voting.png"><img src="http://panjiansen.com/wp-content/uploads/2014/06/voting.png" alt="voting" width="589" height="636" class="aligncenter size-full wp-image-184" /></a>
+
+<a href="http://panjiansen.com/wp-content/uploads/2014/06/result.png"><img src="http://panjiansen.com/wp-content/uploads/2014/06/result.png" alt="result" width="589" height="600" class="aligncenter size-full wp-image-185" /></a>
 
 
