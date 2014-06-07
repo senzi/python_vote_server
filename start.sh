@@ -1,5 +1,6 @@
 #!/bin/bash
-echo -e "(en/zh)\nqing ni xuan zhe yi ge yu yan ban ben"
+echo -e "请选择语言版本"
+echo -e "en or zh"
 read -p "Please select a language version:  " sel
 
 if    [ "$sel" == "en" ];then 
