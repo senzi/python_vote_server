@@ -119,7 +119,7 @@ class vote(LineReceiver):
 	def handle_vote(self, message):
 		if message == "quit" :
 			self.transport.loseConnection()	
-		f = open('vote_result','a')
+		f = open('vote_result.data','a')
 		try:
 			message = int(message)
 		except ValueError:
@@ -136,7 +136,7 @@ class vote(LineReceiver):
 			self.state = "voted"
 			self.sendLine("Thank you, your vote has been recorded. Hit 'Enter' to see the result .")
 		else:
-			self.sendLine("There are only 10 options, please Enter the number from 1 to 10.")
+			self.sendLine("There are only 18 options, please Enter the number from 1 to 18.")
 			return
 	def handle_print(self,message):
 		self.sendLine(goodbye)
@@ -151,7 +151,7 @@ class voteFactory(Factory):
 		return vote(self.users)
 
 def check_name(check_name):
-	namelist = open("list",'rU')
+	namelist = open("list.data",'rU')
 	check_name = int(check_name)
 	realname =  'unknow_name'
 	for line in namelist:
@@ -170,7 +170,7 @@ def addWord(w,wcDict):
 totalcount = 0
 def processLine(wcDict) :
 	global totalcount
-	vote_result = open("vote_result",'rU')
+	vote_result = open("vote_result.data",'rU')
 	for line in vote_result:
 		line = line.strip()
 		result = line.split(',')[-1]
@@ -207,7 +207,7 @@ def print_food(self):
 	width = 4
 	flag = False
 	format = '<%s> %-12s(%s)'
-	food_list = open("food_list",'r')
+	food_list = open("food_list.data",'r')
 	for line in food_list :
 		food_number = line.split(',')[0]
 		food_name     = line.split(',')[1]
@@ -222,7 +222,7 @@ def print_food(self):
 
 def findfood(n):
 	temp = None
-	food_list = open("food_list",'rU')
+	food_list = open("food_list.data",'rU')
 	for line in food_list :
 		food_number = line.split(',')[3]
 		food_name     = line.split(',')[1]
